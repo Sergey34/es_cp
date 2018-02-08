@@ -1,0 +1,165 @@
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "failed": 0
+  },
+  "hits": {
+    "total": 1952,
+    "max_score": 1.0,
+    "hits": [
+      {
+        "_index": "test",
+        "_type": "capture_item",
+        "_id": "AWFz9O8IZBNU31laMUlX",
+        "_score": 1.0,
+        "_source": {
+          "capturing_timestamp": "2018-02-08T05:48:02.367Z",
+          "captured_for": "2017-12-05T09:00:00.000Z",
+          "source_chart_name": "!!!!",
+          "capture_config_name": "!!!",
+          "data": {
+            "title": "!!!!"
+          }
+        }
+      },
+      {
+        "_index": "test",
+        "_type": "capture_item",
+        "_id": "AWFz9O8UZBNU31laMUlZ",
+        "_score": 1.0,
+        "_source": {
+          "capturing_timestamp": "2018-02-08T05:48:02.368Z",
+          "captured_for": "2017-12-05T12:00:00.000Z",
+          "source_chart_name": "!!!!",
+          "capture_config_name": "!!!",
+          "data": {
+            "title": "!!!!"
+          }
+        }
+      },
+      {
+        "_index": "test",
+        "_type": "capture_item",
+        "_id": "AWFz9O8gZBNU31laMUlb",
+        "_score": 1.0,
+        "_source": {
+          "capturing_timestamp": "2018-02-08T05:48:02.368Z",
+          "captured_for": "2017-12-05T14:00:00.000Z",
+          "source_chart_name": "!!!!",
+          "capture_config_name": "!!!",
+          "data": {
+            "title": "!!!!"
+          }
+        }
+      },
+      {
+        "_index": "test",
+        "_type": "capture_item",
+        "_id": "AWFz9O8tZBNU31laMUld",
+        "_score": 1.0,
+        "_source": {
+          "capturing_timestamp": "2018-02-08T05:48:02.368Z",
+          "captured_for": "2017-12-05T15:00:00.000Z",
+          "source_chart_name": "!!!!",
+          "capture_config_name": "!!!",
+          "data": {
+            "title": "!!!!"
+          }
+        }
+      },
+      {
+        "_index": "test",
+        "_type": "capture_item",
+        "_id": "AWFz9O97ZBNU31laMUlo",
+        "_score": 1.0,
+        "_source": {
+          "capturing_timestamp": "2018-02-08T05:48:02.376Z",
+          "captured_for": "2017-12-06T02:00:00.000Z",
+          "source_chart_name": "!!!!",
+          "capture_config_name": "!!!",
+          "data": {
+            "title": "!!!!"
+          }
+        }
+      },
+      {
+        "_index": "test",
+        "_type": "capture_item",
+        "_id": "AWFz9O-QZBNU31laMUlr",
+        "_score": 1.0,
+        "_source": {
+          "capturing_timestamp": "2018-02-08T05:48:02.380Z",
+          "captured_for": "2017-12-06T05:00:00.000Z",
+          "source_chart_name": "!!!!",
+          "capture_config_name": "!!!",
+          "data": {
+            "title": "!!!!"
+          }
+        }
+      },
+      {
+        "_index": "test",
+        "_type": "capture_item",
+        "_id": "AWFz9O-4ZBNU31laMUlw",
+        "_score": 1.0,
+        "_source": {
+          "capturing_timestamp": "2018-02-08T05:48:02.392Z",
+          "captured_for": "2017-12-06T12:00:00.000Z",
+          "source_chart_name": "!!!!",
+          "capture_config_name": "!!!",
+          "data": {
+            "title": "!!!!"
+          }
+        }
+      },
+      {
+        "_index": "test",
+        "_type": "capture_item",
+        "_id": "AWFz9O_CZBNU31laMUlx",
+        "_score": 1.0,
+        "_source": {
+          "capturing_timestamp": "2018-02-08T05:48:02.392Z",
+          "captured_for": "2017-12-06T10:00:00.000Z",
+          "source_chart_name": "!!!!",
+          "capture_config_name": "!!!",
+          "data": {
+            "title": "!!!!"
+          }
+        }
+      },
+      {
+        "_index": "test",
+        "_type": "capture_item",
+        "_id": "AWFz9O_TZBNU31laMUl0",
+        "_score": 1.0,
+        "_source": {
+          "capturing_timestamp": "2018-02-08T05:48:02.392Z",
+          "captured_for": "2017-12-06T16:00:00.000Z",
+          "source_chart_name": "!!!!",
+          "capture_config_name": "!!!",
+          "data": {
+            "title": "!!!!"
+          }
+        }
+      },
+      {
+        "_index": "test",
+        "_type": "capture_item",
+        "_id": "AWFz9O_gZBNU31laMUl2",
+        "_score": 1.0,
+        "_source": {
+          "capturing_timestamp": "2018-02-08T05:48:02.392Z",
+          "captured_for": "2017-12-06T15:00:00.000Z",
+          "source_chart_name": "!!!!",
+          "capture_config_name": "!!!",
+          "data": {
+            "title": "!!!!"
+          }
+        }
+      }
+    ]
+  }
+}
