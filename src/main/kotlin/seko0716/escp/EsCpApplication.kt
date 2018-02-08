@@ -7,13 +7,10 @@ import org.springframework.context.annotation.Bean
 import org.springframework.web.client.RestTemplate
 
 
-
 @SpringBootApplication
-class EsCpApplication{
+class EsCpApplication {
     @Bean
-    fun restTemplate(builder: RestTemplateBuilder): RestTemplate {
-        return builder.build()
-    }
+    fun restTemplate(builder: RestTemplateBuilder): RestTemplate = builder.build()
 
 }
 
