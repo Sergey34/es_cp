@@ -50,6 +50,7 @@ class Service {
 
         result.getData().forEach {
             restTemplate.put("$serverToUrl:$serverToPort/${it._index}/${it._type}/${it._id}", it._source)
+            println("$serverToUrl:$serverToPort/${it._index}/${it._type}/${it._id}")
         }
         return "done for ${result.getData().size}"
     }
