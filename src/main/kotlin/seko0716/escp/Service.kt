@@ -4,6 +4,9 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.http.HttpEntity
+import org.springframework.http.HttpHeaders
+import org.springframework.http.MediaType
 import org.springframework.shell.standard.ShellComponent
 import org.springframework.shell.standard.ShellMethod
 import org.springframework.web.client.RestTemplate
@@ -11,9 +14,12 @@ import java.io.File
 
 
 @ShellComponent
-class Service {
+class Service() {
     @Autowired
     lateinit var restTemplate: RestTemplate
+    val headers: HttpHeaders = HttpHeaders()
+    val mapper = jacksonObjectMapper()
+
 
     @Value("#{\${server_map}}")
     val nameToUrl: Map<String, String> = HashMap()
@@ -52,15 +58,8 @@ class Service {
     fun cp_file(serverFrom: String, request: String): String {
         val from: String = nameToUrl[serverFrom] ?: return "not found server by nae"
 
-        val result = restTemplate.getForObject("$from:9201/$request", Result::class.java)
-                ?: return "failed request"
-        val mapper = jacksonObjectMapper()
-        val writeValueAsString = mapper.writeValueAsString(result)
-
-        val file = File("${request.split("/")[0]}.json")
-        file.createNewFile()
-
-        file.bufferedWriter().use { out -> out.write(writeValueAsString) }
+        val result = getData(from, 9201, request) ?: return "failed request"
+        mapper.writeValue(File("${request.split("/")[0]}.json").apply { createNewFile() }, result)
 
         return "done for ${result.getData().size}"
     }
@@ -68,9 +67,9 @@ class Service {
     @ShellMethod(""""copy from file to es server. es server port is 9201.
         request is https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html
         sample: cp_from_file fileName dev2""")
-    fun cp_from_file(fileName: String,serverToUrl: String): String {
+    fun cp_from_file(fileName: String, serverToUrl: String): String {
         val to: String = nameToUrl[serverToUrl] ?: return "not found server by nae"
-        val mapper = jacksonObjectMapper()
+
         val result = mapper.readValue<Result>(File(fileName))
 
         result.getData().forEach {
@@ -82,7 +81,7 @@ class Service {
 
 
     private fun perform(serverFromUrl: String, serverFromPort: Int = 9201, request: String, serverToUrl: String, serverToPort: Int = 9201): String {
-        val result = restTemplate.getForObject("$serverFromUrl:$serverFromPort/$request", Result::class.java)
+        val result = getData(serverFromUrl, serverFromPort, request)
                 ?: return "failed request"
 
         result.getData().forEach {
@@ -91,4 +90,13 @@ class Service {
         }
         return "done for ${result.getData().size}"
     }
+
+    private fun getData(serverFromUrl: String, serverFromPort: Int, request: String) =
+            restTemplate.postForObject("$serverFromUrl:$serverFromPort/_search", HttpEntity(request, headers), Result::class.java)
+
+    init {
+        headers.contentType = MediaType.APPLICATION_JSON
+    }
 }
+
+//
