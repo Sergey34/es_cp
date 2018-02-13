@@ -1,0 +1,6 @@
+{
+  "title": "$title",
+  "language": "$language",
+  "src": "$src",
+  "extension": "$extension"
+}
